@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(90deg, #304ffe, #00bcd4);
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(90deg, #6e45e2, #88d3ce);
             background-size: 200% 200%;
             animation: gradient 3s ease infinite;
             margin: 0;
@@ -32,53 +32,65 @@
         }
 
         .menu {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-            padding: 20px;
+            padding: 30px;
             text-align: center;
         }
 
         .menu-button {
             display: block;
-            margin: 10px auto;
-            padding: 10px 20px;
+            margin: 20px auto;
+            padding: 15px 30px;
             border: none;
-            border-radius: 5px;
-            background-color: #3498db;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #ff5722, #f57c00); /* Gradiente de cores */
             color: #fff;
-            font-size: 18px;
+            font-size: 20px;
             text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease, opacity 0.3s ease;
             cursor: pointer;
             position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .menu-button:nth-child(odd) {
+            animation: fadeInLeft 1s ease forwards;
+        }
+
+        .menu-button:nth-child(even) {
+            animation: fadeInRight 1s ease forwards;
         }
 
         .menu-button:hover {
-            background-color: #2577a9;
-            transform: scale(1.05);
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #ff6d3d, #ff5722); /* Gradiente ao passar o mouse */
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
             color: #fff;
         }
 
-        .menu-title {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 20px;
-            opacity: 0.9;
-            animation: float 3s ease infinite;
+        @keyframes fadeInLeft {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        @keyframes float {
-            0% {
+        @keyframes fadeInRight {
+            to {
+                opacity: 1;
                 transform: translateY(0);
             }
-            50% {
-                transform: translateY(-10px);
-            }
-            100% {
-                transform: translateY(0);
-            }
+        }
+
+        .menu-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .menu-icon {
@@ -87,23 +99,23 @@
         }
 
         .menu-button:hover .menu-icon {
-            transform: scale(1.2) rotate(360deg); /* Adicionando uma rotação de 360 graus */
+            transform: scale(1.2) rotate(360deg);
         }
 
         .menu-button:first-child {
-            background-color: #e74c3c;
+            background: linear-gradient(45deg, #00bcd4, #03a9f4); /* Gradiente do primeiro botão */
         }
 
         .menu-button:first-child:hover {
-            background-color: #d14235;
+            background: linear-gradient(45deg, #00acc1, #039be5); /* Gradiente ao passar o mouse no primeiro botão */
         }
 
         .menu-button:nth-child(2) {
-            background-color: #27ae60;
+            background: linear-gradient(45deg, #4caf50, #43a047); /* Gradiente do segundo botão */
         }
 
         .menu-button:nth-child(2):hover {
-            background-color: #219a52;
+            background: linear-gradient(45deg, #43a047, #388e3c); /* Gradiente ao passar o mouse no segundo botão */
         }
     </style>
 </head>

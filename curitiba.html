@@ -4,35 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estoque Curitiba</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2;
+            background: linear-gradient(90deg, #304ffe, #00bcd4);
+            background-size: 200% 200%;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .menu {
-            background-color: #3498db;
+            background-color: rgba(255, 255, 255, 0.8);
             display: flex;
             justify-content: space-between;
             padding: 20px;
         }
 
         .menu-button {
+            display: flex;
+            align-items: center;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            background-color: #2980b9;
+            background-color: #ff5722;
             color: #fff;
             font-size: 18px;
             text-decoration: none;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;
             cursor: pointer;
+            position: relative;
+        }
+
+        .menu-button i {
+            margin-right: 10px;
         }
 
         .menu-button:hover {
-            background-color: #2577a9;
+            background-color: #ff6d3d;
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+            color: #fff;
         }
 
         .container {
@@ -51,8 +76,12 @@
 </head>
 <body>
     <div class="menu">
-        <a class="menu-button" href="index.html">Menu</a>
-        <a class="menu-button" href="log.html">Estoque Logística</a>
+        <a class="menu-button" href="index.html">
+            <i class="fas fa-home"></i> Menu
+        </a>
+        <a class="menu-button" href="log.html">
+            <i class="fas fa-shipping-fast"></i> Estoque Logística
+        </a>
     </div>
 
     <div class="container">
