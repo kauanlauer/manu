@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque Logística</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(90deg, #304ffe, #00bcd4);
+            background-size: 200% 200%;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .menu {
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .menu-button {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff5722;
+            color: #fff;
+            font-size: 18px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .menu-button i {
+            margin-right: 10px;
+        }
+
+        .menu-button:hover {
+            background-color: #ff6d3d;
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 40px); /* Subtrai a altura do menu */
+        }
+
+        .google-sheet {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a class="menu-button" href="index.html">
+            <i class="fas fa-home"></i> Menu
+        </a>
+        <a class="menu-button" href="curitiba.html">
+            <i class="fas fa-box"></i> Estoque Curitiba
+        </a>
+        <a class="menu-button" href="log.html">
+            <i class="menu-icon fas fa-shipping-fast"></i> Estoque Logística
+        </a>
+    </div>
+    <div class="container" style="background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); text-align: center; max-width: 800px; margin: 0 auto;">
+        <h1 style="font-size: 24px; color: #333; margin-bottom: 20px;">Calculadora</h1>
+        <form id="calculadora-form" style="display: flex; flex-direction: column; gap: 10px;">
+            <label for="diametro-arruela" style="font-size: 18px; color: #333;">Diâmetro da Arruela (mm):</label>
+            <input type="number" id="diametro-arruela" value="48" step="0.01" style="padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+    
+            <label for="comprimento-fita" style="font-size: 18px; color: #333;">Comprimento da Fita por Arruela (m):</label>
+            <input type="number" id="comprimento-fita" value="100" step="0.01" style="padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+    
+            <label for="quantidade-arruelas" style="font-size: 18px; color: #333;">Quantidade de Arruelas:</label>
+            <input type="number" id="quantidade-arruelas" value="1" step="1" style="padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+    
+            <button type="button" id="calcular" style="background-color: #ff5722; color: #fff; padding: 12px 20px; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;">Calcular Metros Quadrados</button>
+        </form>
+    
+        <div id="resultado" style="margin-top: 20px; background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); font-size: 18px;"></div>
+    </div>    
+    <script>
+        document.getElementById("calcular").addEventListener("click", function () {
+            // Obtém os valores inseridos pelo usuário
+            const diametroArruela = parseFloat(document.getElementById("diametro-arruela").value);
+            const comprimentoFita = parseFloat(document.getElementById("comprimento-fita").value);
+            const quantidadeArruelas = parseInt(document.getElementById("quantidade-arruelas").value);
+            
+            // Converte o diâmetro da arruela para metros
+            const diametroArruelaMetros = diametroArruela / 1000;
+            
+            // Calcula os metros quadrados
+            const raio = diametroArruelaMetros / 2;
+            const areaFita = Math.PI * raio * raio;
+            const metrosQuadradosPorArruela = areaFita * comprimentoFita;
+            
+            // Calcula o total de metros quadrados
+            const totalMetrosQuadrados = metrosQuadradosPorArruela * quantidadeArruelas;
+            
+            // Exibe o resultado
+            document.getElementById("resultado").innerHTML = `
+                <p>Área da Fita Adesiva por Arruela: ${metrosQuadradosPorArruela.toFixed(2)} metros quadrados</p>
+                <p>Quantidade de Arruelas: ${quantidadeArruelas}</p>
+                <p>Total de Metros Quadrados: ${totalMetrosQuadrados.toFixed(2)} metros quadrados</p>
+            `;
+        });
+    </script>
+    
+</body>
+</html>
