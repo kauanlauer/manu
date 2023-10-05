@@ -65,6 +65,20 @@
             font-size: 24px;
             color: #333;
             margin-bottom: 20px;
+            opacity: 0.9;
+            animation: float 3s ease infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
         }
 
         .menu-icon {
@@ -73,7 +87,7 @@
         }
 
         .menu-button:hover .menu-icon {
-            transform: scale(1.2);
+            transform: scale(1.2) rotate(360deg); /* Adicionando uma rotação de 360 graus */
         }
 
         .menu-button:first-child {
