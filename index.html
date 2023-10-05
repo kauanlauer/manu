@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estoque</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -48,6 +49,10 @@
             margin-bottom: 20px;
         }
 
+        .menu-icon {
+            margin-right: 10px;
+        }
+
         .menu-button:first-child {
             background-color: #e74c3c;
         }
@@ -68,8 +73,12 @@
 <body>
     <div class="menu">
         <h1 class="menu-title">Escolha um Estoque</h1>
-        <a class="menu-button" href="curitiba.html">Estoque Curitiba</a>
-        <a class="menu-button" href="log.html">Estoque Logística</a>
+        <a class="menu-button" href="curitiba.html">
+            <i class="menu-icon fas fa-box"></i> Estoque Curitiba
+        </a>
+        <a class="menu-button" href="log.html">
+            <i class="menu-icon fas fa-shipping-fast"></i> Estoque Logística
+        </a>
     </div>
 </body>
 </html>
