@@ -85,50 +85,54 @@
         <a class="menu-button" href="log.html">
             <i class="menu-icon fas fa-shipping-fast"></i> Estoque Logística
         </a>
+        <a class="menu-button" href="form.html">
+            <i class="menu-icon fas fa-calculator"></i> Formulários
+        </a>
     </div>
-    <div class="container" style="background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); text-align: center; max-width: 800px; margin: 0 auto;">
-        <h1 style="font-size: 24px; color: #333; margin-bottom: 20px;">Calculadora</h1>
-        <form id="calculadora-form" style="display: flex; flex-direction: column; gap: 10px;">
-            <label for="diametro-arruela" style="font-size: 18px; color: #333;">Diâmetro da Arruela (mm):</label>
-            <input type="number" id="diametro-arruela" value="48" step="0.01" style="padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
-    
-            <label for="comprimento-fita" style="font-size: 18px; color: #333;">Comprimento da Fita por Arruela (m):</label>
-            <input type="number" id="comprimento-fita" value="100" step="0.01" style="padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
-    
-            <label for="quantidade-arruelas" style="font-size: 18px; color: #333;">Quantidade de Arruelas:</label>
-            <input type="number" id="quantidade-arruelas" value="1" step="1" style="padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
-    
-            <button type="button" id="calcular" style="background-color: #ff5722; color: #fff; padding: 12px 20px; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;">Calcular Metros Quadrados</button>
+    <div class="container">
+        <h2>Criar Relatório</h2>
+        <form id="relatorio-form" action="https://script.google.com/macros/s/AKfycbyskZ81Nbe3wpHnoNCxJj_pQQwxormAKg7If0Yz1BGesupnwnqz4dqjp7CPZP-8kzRquA/exec" method="post">
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" required><br><br>
+
+            <label for="conteudo">Conteúdo:</label><br>
+            <textarea id="conteudo" name="conteudo" rows="4" cols="50" required></textarea><br><br>
+
+            <input type="submit" value="Criar Relatório">
         </form>
-    
-        <div id="resultado" style="margin-top: 20px; background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); font-size: 18px;"></div>
-    </div>    
+        <div id="confirmationMessage" style="display: none;">Dados enviados com sucesso!</div>
+    </div>
+
     <script>
-        document.getElementById("calcular").addEventListener("click", function () {
-            // Obtém os valores inseridos pelo usuário
-            const diametroArruela = parseFloat(document.getElementById("diametro-arruela").value);
-            const comprimentoFita = parseFloat(document.getElementById("comprimento-fita").value);
-            const quantidadeArruelas = parseInt(document.getElementById("quantidade-arruelas").value);
-            
-            // Converte o diâmetro da arruela para metros
-            const diametroArruelaMetros = diametroArruela / 1000;
-            
-            // Calcula os metros quadrados
-            const raio = diametroArruelaMetros / 2;
-            const areaFita = Math.PI * raio * raio;
-            const metrosQuadradosPorArruela = areaFita * comprimentoFita;
-            
-            // Calcula o total de metros quadrados
-            const totalMetrosQuadrados = metrosQuadradosPorArruela * quantidadeArruelas;
-            
-            // Exibe o resultado
-            document.getElementById("resultado").innerHTML = `
-                <p>Área da Fita Adesiva por Arruela: ${metrosQuadradosPorArruela.toFixed(2)} metros quadrados</p>
-                <p>Quantidade de Arruelas: ${quantidadeArruelas}</p>
-                <p>Total de Metros Quadrados: ${totalMetrosQuadrados.toFixed(2)} metros quadrados</p>
-            `;
+        document.getElementById('relatorio-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const titulo = document.getElementById('titulo').value;
+            const conteudo = document.getElementById('conteudo').value;
+
+            // URL do Google Apps Script
+            const url = 'https://script.google.com/macros/s/AKfycbyskZ81Nbe3wpHnoNCxJj_pQQwxormAKg7If0Yz1BGesupnwnqz4dqjp7CPZP-8kzRquA/exec';
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `titulo=${titulo}&conteudo=${conteudo}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Mostra a mensagem de confirmação
+                document.getElementById('confirmationMessage').style.display = 'block';
+
+                // Redireciona para a mesma página após 3 segundos (3000 milissegundos)
+                setTimeout(function() {
+                    window.location.href = window.location.href;
+                }, 3000);
+            })
+            .catch(error => console.error('Erro:', error));
         });
     </script>
-    
 </body>
 </html>
