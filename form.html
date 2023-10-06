@@ -117,6 +117,21 @@
         input[type="submit"]:hover {
             background-color: #ff6d3d;
         }
+        #confirmationMessage {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #dataHoraEnvio {
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -141,7 +156,7 @@
         <form id="myForm" action="https://script.google.com/macros/s/AKfycbyskZ81Nbe3wpHnoNCxJj_pQQwxormAKg7If0Yz1BGesupnwnqz4dqjp7CPZP-8kzRquA/exec" method="post">
             <h2>Formulário</h2>
             <label for="nome">Nome do Pedido SAP (Número ou nome cliente):</label>
-            <input type="text" id="nome" name="nome" step="1" pattern="\d+" title="Apenas números inteiros são permitidos" style="width: 100%;" required>
+            <input type="text" id="nome" name="nome" style="width: 100%;" required>
             <select id="email" name="email">
                 <option value="curitiba">Curitiba</option>
                 <option value="manaus">Manaus</option>
