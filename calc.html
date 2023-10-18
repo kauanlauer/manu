@@ -83,8 +83,8 @@
         <a class="menu-button" href="curitiba.html">
             <i class="fas fa-box"></i> Estoque Curitiba
         </a>
-        <a class="menu-button" href="calc.html">
-            <i class="menu-icon fas fa-shipping-fast"></i> Calculadora
+        <a class="menu-button" href="log.html">
+            <i class="menu-icon fas fa-shipping-fast"></i> Estoque Logística
         </a>
         <a class="menu-button" href="form.html">
             <i class="menu-icon fas fa-calculator"></i> Formulários
@@ -93,10 +93,50 @@
             <i class="menu-icon fas fa-file-alt"></i> Relatório	Form
         </a>
     </div>
-
     <div class="container">
-        <!-- Inserir a planilha do Google Sheets aqui -->
-        <iframe class="google-sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRgy0m-dpaLrVwp_4AzLFZaI-rNl7TlUxKJC4eKWqpVsF7NYVaMtYCtwGGvncr38Z8AHbBLK4Og4zh6/pubhtml"></iframe>
+        <h2>Criar Relatório</h2>
+        <form id="relatorio-form" action="https://script.google.com/macros/s/AKfycbyskZ81Nbe3wpHnoNCxJj_pQQwxormAKg7If0Yz1BGesupnwnqz4dqjp7CPZP-8kzRquA/exec" method="post">
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" required><br><br>
+
+            <label for="conteudo">Conteúdo:</label><br>
+            <textarea id="conteudo" name="conteudo" rows="4" cols="50" required></textarea><br><br>
+
+            <input type="submit" value="Criar Relatório">
+        </form>
+        <div id="confirmationMessage" style="display: none;">Dados enviados com sucesso!</div>
     </div>
+
+    <script>
+        document.getElementById('relatorio-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const titulo = document.getElementById('titulo').value;
+            const conteudo = document.getElementById('conteudo').value;
+
+            // URL do Google Apps Script
+            const url = 'https://script.google.com/macros/s/AKfycbyskZ81Nbe3wpHnoNCxJj_pQQwxormAKg7If0Yz1BGesupnwnqz4dqjp7CPZP-8kzRquA/exec';
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `titulo=${titulo}&conteudo=${conteudo}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Mostra a mensagem de confirmação
+                document.getElementById('confirmationMessage').style.display = 'block';
+
+                // Redireciona para a mesma página após 3 segundos (3000 milissegundos)
+                setTimeout(function() {
+                    window.location.href = window.location.href;
+                }, 3000);
+            })
+            .catch(error => console.error('Erro:', error));
+        });
+    </script>
 </body>
 </html>
