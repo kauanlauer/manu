@@ -29,25 +29,40 @@
         }
 
         .menu {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 250px;
+            height: 100%;
             background-color: rgba(255, 255, 255, 0.8);
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
             padding: 20px;
+            transition: left 0.3s ease;
+            z-index: 2;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 1;
         }
 
         .menu-button {
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
             background-color: #ff5722;
             color: #fff;
             font-size: 18px;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
             cursor: pointer;
-            position: relative;
         }
 
         .menu-button i {
@@ -56,16 +71,13 @@
 
         .menu-button:hover {
             background-color: #ff6d3d;
-            transform: translateY(-5px);
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
-            color: #fff;
         }
 
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: calc(100vh - 40px); /* Subtrai a altura do menu */
+            height: calc(100vh - 40px);
         }
 
         .google-sheet {
@@ -73,12 +85,27 @@
             height: 100%;
             border: none;
         }
+
+        .overlay.active {
+            display: block;
+        }
+
+        .menu.active {
+            left: 0;
+        }
     </style>
 </head>
 <body>
+    <div class="overlay" onclick="fecharMenu()"></div>
+
+    <!-- Adiciona um botão de menu -->
+    <button class="menu-button" onclick="abrirMenu()">
+        <i class="fas fa-bars"></i> Menu
+    </button>
+
     <div class="menu">
         <a class="menu-button" href="index.html">
-            <i class="fas fa-home"></i> Menu
+            <i class="fas fa-home"></i> Página Inicial
         </a>
         <a class="menu-button" href="curitiba.html">
             <i class="fas fa-box"></i> Estoque Curitiba
@@ -87,18 +114,32 @@
             <i class="menu-icon fas fa-calculator"></i> Formulários
         </a>
         <a class="menu-button" href="rela.html">
-            <i class="menu-icon fas fa-file-alt"></i> Relatório	Form
+            <i class="menu-icon fas fa-file-alt"></i> Relatórios
         </a>
         <a class="menu-button" href="prazoproducao.html">
             <i class="menu-icon fas fa-cogs"></i> Prazo de Produção
         </a>
         <a class="menu-button" href="chegadasmanaus.html">
             <i class="menu-icon fas fa-ship"></i> Embarques Manaus
-        </a>        
+        </a>
+        <a class="menu-button" href="calc.html">
+            <i class="menu-icon fas fa-calculator"></i> Calculadora de Fita
+        </a>  
     </div>
     <div class="container">
         <!-- Inserir a planilha do Google Sheets aqui -->
         <iframe class="google-sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRgy0m-dpaLrVwp_4AzLFZaI-rNl7TlUxKJC4eKWqpVsF7NYVaMtYCtwGGvncr38Z8AHbBLK4Og4zh6/pubhtml"></iframe>
     </div>
+    <script>
+        function abrirMenu() {
+            document.querySelector('.menu').classList.add('active');
+            document.querySelector('.overlay').classList.add('active');
+        }
+
+        function fecharMenu() {
+            document.querySelector('.menu').classList.remove('active');
+            document.querySelector('.overlay').classList.remove('active');
+        }
+    </script>
 </body>
 </html>
