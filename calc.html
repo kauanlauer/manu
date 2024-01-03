@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estoque Logística</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Calculadora de Fita Adesiva</title>
+    <link rel="stylesheet" href="calc.css">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -60,19 +59,7 @@
             box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
             color: #fff;
         }
-
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: calc(100vh - 40px); /* Subtrai a altura do menu */
-        }
-
-        .google-sheet {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+        
     </style>
 </head>
 <body>
@@ -82,9 +69,6 @@
         </a>
         <a class="menu-button" href="curitiba.html">
             <i class="fas fa-box"></i> Estoque Curitiba
-        </a>
-        <a class="menu-button" href="log.html">
-            <i class="menu-icon fas fa-shipping-fast"></i> Estoque Logística
         </a>
         <a class="menu-button" href="form.html">
             <i class="menu-icon fas fa-calculator"></i> Formulários
@@ -99,50 +83,73 @@
             <i class="menu-icon fas fa-ship"></i> Embarques Manaus
         </a>        
     </div>
+</head>
+<body>
     <div class="container">
-        <h2>Criar Relatório</h2>
-        <form id="relatorio-form" action="https://script.google.com/macros/s/AKfycbyskZ81Nbe3wpHnoNCxJj_pQQwxormAKg7If0Yz1BGesupnwnqz4dqjp7CPZP-8kzRquA/exec" method="post">
-            <label for="titulo">Título:</label>
-            <input type="text" id="titulo" name="titulo" required><br><br>
+        <h2>Escolha o tipo de cálculo:</h2>
+        <select id="tipoCalculo" onchange="mostrarFormulario()">
+            <option value="rolos">Calcular metros com base em rolos</option>
+            <option value="metros">Calcular rolos com base em metros</option>
+            <option value="caixas">Calcular metros e rolos com base em caixas</option>
+        </select>
 
-            <label for="conteudo">Conteúdo:</label><br>
-            <textarea id="conteudo" name="conteudo" rows="4" cols="50" required></textarea><br><br>
+        <div id="formularios">
+            <!-- Formulário para calcular a quantidade em metros com base nos rolos -->
+            <div id="formulario-rolos">
+                <h3>Calcular metros com base em rolos</h3>
+                <form id="calculadora-form-rolos">
+                    <label for="largura-rolos">Largura do rolo (cm):</label>
+                    <input type="text" id="largura-rolos" required>
 
-            <input type="submit" value="Criar Relatório">
-        </form>
-        <div id="confirmationMessage" style="display: none;">Dados enviados com sucesso!</div>
+                    <label for="comprimento-rolos">Comprimento do rolo (cm):</label>
+                    <input type="text" id="comprimento-rolos" required>
+
+                    <label for="rolos-rolos">Quantidade de rolos:</label>
+                    <input type="number" id="rolos-rolos" required>
+
+                    <input type="button" value="Calcular" onclick="calcularQuantidadeMetrosRolos()">
+                </form>
+                <div id="resultado-rolos"></div>
+            </div>
+
+            <!-- Formulário para calcular a quantidade em rolos com base em metros -->
+            <div id="formulario-metros">
+                <h3>Calcular rolos com base em metros</h3>
+                <form id="calculadora-form-metros">
+                    <label for="largura-metros">Largura do rolo (cm):</label>
+                    <input type="text" id="largura-metros" required>
+
+                    <label for="comprimento-metros">Comprimento do rolo (cm):</label>
+                    <input type="text" id="comprimento-metros" required>
+
+                    <label for="metros-metros">Quantidade em metros:</label>
+                    <input type="number" id="metros-metros" required>
+
+                    <input type="button" value="Calcular" onclick="calcularQuantidadeRoIosMetros()">
+                </form>
+                <div id="resultado-metros"></div>
+            </div>
+
+            <!-- Formulário para calcular a quantidade em metros e rolos com base nas caixas -->
+            <div id="formulario-caixas">
+                <h3>Calcular metros e rolos com base em caixas</h3>
+                <form id="calculadora-form-caixas">
+                    <label for="largura-caixas">Largura do rolo (cm):</label>
+                    <input type="text" id="largura-caixas" required>
+
+                    <label for="comprimento-caixas">Comprimento do rolo (cm):</label>
+                    <input type="text" id="comprimento-caixas" required>
+
+                    <label for="caixas-caixas">Quantidade de caixas:</label>
+                    <input type="number" id="caixas-caixas" required>
+
+                    <input type="button" value="Calcular" onclick="calcularQuantidadeMetrosRoIosCaixas()">
+                </form>
+                <div id="resultado-caixas"></div>
+            </div>
+        </div>
     </div>
 
-    <script>
-        document.getElementById('relatorio-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const titulo = document.getElementById('titulo').value;
-            const conteudo = document.getElementById('conteudo').value;
-
-            // URL do Google Apps Script
-            const url = 'https://script.google.com/macros/s/AKfycbyskZ81Nbe3wpHnoNCxJj_pQQwxormAKg7If0Yz1BGesupnwnqz4dqjp7CPZP-8kzRquA/exec';
-
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: `titulo=${titulo}&conteudo=${conteudo}`
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                // Mostra a mensagem de confirmação
-                document.getElementById('confirmationMessage').style.display = 'block';
-
-                // Redireciona para a mesma página após 3 segundos (3000 milissegundos)
-                setTimeout(function() {
-                    window.location.href = window.location.href;
-                }, 3000);
-            })
-            .catch(error => console.error('Erro:', error));
-        });
-    </script>
+    <script src="calc.js"></script>
 </body>
 </html>
