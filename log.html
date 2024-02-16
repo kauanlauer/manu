@@ -9,6 +9,35 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <script>
+        // Função para solicitar a senha e verificar se é correta
+        function solicitarSenha() {
+            // Verifica se a senha já foi inserida corretamente anteriormente
+            var senhaCorreta = localStorage.getItem("senhaCorreta");
+
+            if (senhaCorreta !== "true") {
+                // Solicita a senha ao usuário usando a função prompt
+                var senha = prompt("Por favor, insira a senha de administrador:");
+
+                // Verifica se a senha inserida é correta
+                if (senha === "adm") {
+                    // Se a senha estiver correta, permite o acesso à página
+                    // Define que a senha foi inserida corretamente
+                    localStorage.setItem("senhaCorreta", "true");
+                } else {
+                    // Se a senha estiver incorreta, exibe uma mensagem de erro
+                    alert("Senha incorreta. Você não tem permissão para acessar esta página.");
+                    // Redireciona o usuário de volta para a página inicial ou outra página de sua escolha
+                    window.location.href = "index.html";
+                }
+            }
+        }
+
+        // Chama a função para solicitar a senha assim que a página for carregada
+        window.onload = solicitarSenha;
+    </script>
+
+    <!-- Restante do seu código HTML -->
     <div class="overlay" onclick="fecharMenu()"></div>
 
     <!-- Adiciona um botão de menu -->
