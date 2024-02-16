@@ -1,4 +1,3 @@
-
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -26,7 +25,7 @@ body {
     left: -300px;
     width: 250px;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0);
+    background-color: #575757d0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,6 +33,8 @@ body {
     padding: 20px;
     transition: left 0.3s ease;
     z-index: 2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra */
+    border-right: 1px solid rgba(0, 0, 0, 0.1); /* Adiciona uma borda à direita */
 }
 
 .overlay {
@@ -48,22 +49,24 @@ body {
 }
 
 .menu-button {
-    background-color: #00000000;
-    color: #fff;
-    font-size: 18px;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 16px;
     border: none;
-    border-radius: 5px;
-    padding: 2px 1px; /* Ajuste o valor do padding conforme necessário */
+    border-radius: 10px;
+    padding: 15px 20px; /* Ajuste o valor do padding conforme necessário */
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Adiciona transição de cor de fundo */
 }
 
 
 .menu-button i {
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .menu-button:hover {
-    background-color: #ff6d3d;
+    background-color: #1b1fdd5b;
+    color: #000000; /* Altera a cor do texto ao passar o mouse */
 }
 
 .container {
