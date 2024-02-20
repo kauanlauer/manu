@@ -12,15 +12,15 @@ body, html {
 
 .sidebar {
     width: 200px;
-    background-color: #100f49;
-    padding-top: 1px;
+    background-color: #333;
+    padding-top: 20px;
     transition: width 0.5s;
-    color: #ffffff;
+    color: #fff;
     font-size: 12px;
 }
 
 .sidebar.active {
-    width: 20px;
+    width: 60px;
 }
 
 .sidebar ul {
@@ -29,7 +29,7 @@ body, html {
 }
 
 .sidebar ul li {
-    padding: 18px;
+    padding: 10px;
 }
 
 .sidebar ul li a {
@@ -50,16 +50,14 @@ body, html {
 
 .logo {
     text-align: center;
-    margin-bottom: 20px; /* Alterado para dar espaço abaixo da logo */
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
 .kauan {
-    font-size: 20px;
-    color: #ffcc00; /* Cor para Kauan */
+    color: #ffcc00; /* cor para Kauan */
 }
 
 .lauer {
-    font-size: 10px;
-    color: #66ccff; /* Cor para Lauer */
-    margin-left: 20px; /* Espaço entre Kauan e Lauer */
+    color: #66ccff; /* cor para Lauer */
 }

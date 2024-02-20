@@ -7,41 +7,72 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #100f49;
+            padding-top: 1px;
+            color: #ffffff;
+            font-size: 12px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 18px;
+        }
+
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+        }
+
+        .google-sheet {
+            flex: 1;
+            border: none;
+            height: 100vh;
+            width: calc(100vw - 200px); /* Subtrai a largura da barra lateral */
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px; /* Espaço abaixo do logo */
+        }
+
+        .logo img {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
-    <div class="overlay" onclick="fecharMenu()"></div>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="logo.png" alt="Logo" width="120">
+            </div>
 
-    <!-- Adiciona um botão de menu -->
-    <button class="menu-button" onclick="abrirMenu()">
-        <i class="fas fa-bars"></i> Menu
-    </button>
-
-    <div class="menu">
-        <a class="menu-button" href="index.html">Página Inicial</a>
-        <a class="menu-button" href="log.html">Estoque Logística</a>
-        <a class="menu-button" href="curitiba.html">Estoque Curitiba</a>
-        <a class="menu-button" href="fitas.html">Configuração Fitas</a>
-        <a class="menu-button" href="configuracaoPaletes.html">Configuração Paletes</a>        
-        <a class="menu-button" href="form.html">Formulários</a>
-        <a class="menu-button" href="rela.html">Relatórios</a>
-        <a class="menu-button" href="prazoproducao.html">Prazo de Produção</a>
-        <a class="menu-button" href="chegadasmanaus.html">Embarques Manaus</a>
-        <a class="menu-button" href="calc.html">Calculadora de Fita</a>  
-    </div>
-       <div class="container">
-        <!-- Inserir a nova planilha do Google Sheets aqui -->
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="log.html">Estoque Logística</a></li>
+                <li><a href="curitiba.html">Estoque Curitiba</a></li>
+                <li><a href="fitas.html">Configuração Fitas</a></li>
+                <li><a href="configuracaoPaletes.html">Configuração Paletes</a></li>        
+                <li><a href="prazoproducao.html">Prazo de Produção</a></li>
+                <li><a href="calc.html">Calculadora de Fita</a></li>
+                <li><a href="form.html">Formulários</a></li>
+                <li><a href="rela.html">Relatórios</a></li>
+            </ul>
+        </div>
         <iframe class="google-sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSXT_upmi2rqQRlLlDNAaCXMidrDXviU4TNDluh6NEH5UO36S54vFUVZEYnqePTXA/pubhtml"></iframe>
     </div>
-    <script>
-        function abrirMenu() {
-            document.querySelector('.menu').classList.add('active');
-            document.querySelector('.overlay').classList.add('active');
-        }
-
-        function fecharMenu() {
-            document.querySelector('.menu').classList.remove('active');
-            document.querySelector('.overlay').classList.remove('active');
-        }
-    </script>
 </body>
 </html>

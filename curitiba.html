@@ -9,39 +9,28 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="overlay" onclick="fecharMenu()"></div>
-
-    <!-- Adiciona um botão de menu -->
-    <button class="menu-button" onclick="abrirMenu()">
-        <i class="fas fa-bars"></i> Menu
-    </button>
-    <div class="menu">
-        <a class="menu-button" href="index.html">Página Inicial</a>
-        <a class="menu-button" href="log.html">Estoque Logística</a>
-        <a class="menu-button" href="curitiba.html">Estoque Curitiba</a>
-        <a class="menu-button" href="fitas.html">Configuração Fitas</a>
-        <a class="menu-button" href="configuracaoPaletes.html">Configuração Paletes</a>        
-        <a class="menu-button" href="form.html">Formulários</a>
-        <a class="menu-button" href="rela.html">Relatórios</a>
-        <a class="menu-button" href="prazoproducao.html">Prazo de Produção</a>
-        <a class="menu-button" href="chegadasmanaus.html">Embarques Manaus</a>
-        <a class="menu-button" href="calc.html">Calculadora de Fita</a>  
-    </div>
-    
     <div class="container">
-        <!-- Inserir a planilha do Google Sheets aqui -->
-        <iframe class="google-sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQekh1AA7seyXPVh2nRbacI2-mZKYkNcs0SXWoSAn8OEEmOS2qr4GbPWz60qoqRpzDyuBDMbqm_yPWC/pubhtml"></iframe>
-    </div>
-    <script>
-        function abrirMenu() {
-            document.querySelector('.menu').classList.add('active');
-            document.querySelector('.overlay').classList.add('active');
-        }
+        <div class="sidebar">
+            <div class="logo">
+                <img src="logo.png" alt="Logo" width="120">
+            </div>
 
-        function fecharMenu() {
-            document.querySelector('.menu').classList.remove('active');
-            document.querySelector('.overlay').classList.remove('active');
-        }
-    </script>
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="log.html">Estoque Logística</a></li>
+                <li><a href="curitiba.html">Estoque Curitiba</a></li>
+                <li><a href="fitas.html">Configuração Fitas</a></li>
+                <li><a href="configuracaoPaletes.html">Configuração Paletes</a></li>        
+                <li><a href="prazoproducao.html">Prazo de Produção</a></li>
+                <li><a href="calc.html">Calculadora de Fita</a></li>
+                <li><a href="form.html">Formulários</a></li>
+                <li><a href="rela.html">Relatórios</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <!-- Inserir a planilha do Google Sheets aqui -->
+            <iframe class="google-sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQekh1AA7seyXPVh2nRbacI2-mZKYkNcs0SXWoSAn8OEEmOS2qr4GbPWz60qoqRpzDyuBDMbqm_yPWC/pubhtml"></iframe>
+        </div>
+    </div>
 </body>
 </html>

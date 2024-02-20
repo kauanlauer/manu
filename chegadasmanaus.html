@@ -3,45 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estoque Logística</title>
+    <title>Chegadas AM-Manaus</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="overlay" onclick="fecharMenu()"></div>
-
-    <!-- Adiciona um botão de menu -->
-    <button class="menu-button" onclick="abrirMenu()">
-        <i class="fas fa-bars"></i> Menu
-    </button>
-
-    <div class="menu">
-        <a class="menu-button" href="index.html">Página Inicial</a>
-        <a class="menu-button" href="log.html">Estoque Logística</a>
-        <a class="menu-button" href="curitiba.html">Estoque Curitiba</a>
-        <a class="menu-button" href="fitas.html">Configuração Fitas</a>
-        <a class="menu-button" href="configuracaoPaletes.html">Configuração Paletes</a>        
-        <a class="menu-button" href="form.html">Formulários</a>
-        <a class="menu-button" href="rela.html">Relatórios</a>
-        <a class="menu-button" href="prazoproducao.html">Prazo de Produção</a>
-        <a class="menu-button" href="chegadasmanaus.html">Embarques Manaus</a>
-        <a class="menu-button" href="calc.html">Calculadora de Fita</a>  
-    </div>
     <div class="container">
-        <!-- Inserir a planilha do Google Sheets aqui -->
-        <iframe class="google-sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQUucYreidEVaD1E0p3G79TE0ZrqACiKV1CWPuFx89w3MHGaa52HUx4ZVWWy4B1Hw/pubhtml"></iframe>
-    </div>
-    <script>
-        function abrirMenu() {
-            document.querySelector('.menu').classList.add('active');
-            document.querySelector('.overlay').classList.add('active');
-        }
+        <div class="sidebar">
+            <div class="logo">
+                <img src="logo.png" alt="Logo" width="120">
+            </div>
 
-        function fecharMenu() {
-            document.querySelector('.menu').classList.remove('active');
-            document.querySelector('.overlay').classList.remove('active');
-        }
-    </script>
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="log.html">Estoque Logística</a></li>
+                <li><a href="curitiba.html">Estoque Curitiba</a></li>
+                <li><a href="fitas.html">Configuração Fitas</a></li>
+                <li><a href="configuracaoPaletes.html">Configuração Paletes</a></li>        
+                <li><a href="form.html">Formulários</a></li>
+                <li><a href="rela.html">Relatórios</a></li>
+                <li><a href="prazoproducao.html">Prazo de Produção</a></li>
+                <li><a href="chegadasmanaus.html">Embarques Manaus</a></li>
+                <li><a href="calc.html">Calculadora de Fita</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <!-- Inserir a planilha do Google Sheets aqui -->
+            <iframe class="google-sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQUucYreidEVaD1E0p3G79TE0ZrqACiKV1CWPuFx89w3MHGaa52HUx4ZVWWy4B1Hw/pubhtml"></iframe>
+        </div>
+    </div>
 </body>
 </html>
