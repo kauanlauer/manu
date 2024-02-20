@@ -9,23 +9,27 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar">
-            <div class="logo">
-                <img src="logo.png" alt="Logo" width="120">
-            </div>
+    <div class="overlay" onclick="fecharMenu()"></div>
 
+    <!-- Adiciona um botão de menu -->
+    <button class="menu-button" onclick="abrirMenu()">
+        <i class="fas fa-bars"></i> Menu
+    </button>
+
+    <div class="container">
+        <div class="sidebar" id="menu">
+            <img src="logo.png" alt="Logo" width="120">
             <ul>
                 <li><a href="index.html">Página Inicial</a></li>
                 <li><a href="log.html">Estoque Logística</a></li>
                 <li><a href="curitiba.html">Estoque Curitiba</a></li>
-                <li><a href="fitas.html">Configuração Caixas Fitas</a></li>
-                <li><a href="film.html">Configuração Filme</a></li>
+                <li><a href="fitas.html">Configuração Fitas</a></li>
                 <li><a href="configuracaoPaletes.html">Configuração Paletes</a></li>        
-                <li><a href="prazoproducao.html">Prazo de Produção</a></li>
-                <li><a href="calc.html">Calculadora de Fita</a></li>
                 <li><a href="form.html">Formulários</a></li>
                 <li><a href="rela.html">Relatórios</a></li>
+                <li><a href="prazoproducao.html">Prazo de Produção</a></li>
+                <li><a href="chegadasmanaus.html">Embarques Manaus</a></li>
+                <li><a href="calc.html">Calculadora de Fita</a></li>  
             </ul>
         </div>
         <div class="content">
@@ -33,5 +37,14 @@
             <iframe class="google-sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRgy0m-dpaLrVwp_4AzLFZaI-rNl7TlUxKJC4eKWqpVsF7NYVaMtYCtwGGvncr38Z8AHbBLK4Og4zh6/pubhtml"></iframe>
         </div>
     </div>
+    <script>
+        function abrirMenu() {
+            document.getElementById('menu').classList.toggle('active');
+        }
+
+        function fecharMenu() {
+            document.getElementById('menu').classList.remove('active');
+        }
+    </script>
 </body>
 </html>

@@ -3,95 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório Forumlario</title>
+    <title>Relatório Formulário</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
+        body, html {
             margin: 0;
             padding: 0;
-            background: linear-gradient(90deg, #304ffe, #00bcd4);
-            background-size: 200% 200%;
-            animation: gradient 3s ease infinite;
-        }
-
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .menu {
-            position: fixed;
-            top: 0;
-            left: -300px;
-            width: 250px;
             height: 100%;
-            background-color: rgba(255, 255, 255, 0.8);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around;
-            padding: 20px;
-            transition: left 0.3s ease;
-            z-index: 2;
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: none;
-            z-index: 1;
-        }
-
-        .menu-button {
-            background-color: #ff5722;
-            color: #fff;
-            font-size: 18px;
-            border: none;
-            border-radius: 5px;
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .menu-button i {
-            margin-right: 10px;
-        }
-
-        .menu-button:hover {
-            background-color: #ff6d3d;
+            font-family: 'Roboto', sans-serif;
         }
 
         .container {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: calc(100vh - 40px);
+            height: 100%;
+        }
+
+        .sidebar {
+            width: 150px; /* Altere o valor para ajustar a largura do menu lateral */
+            background-color: #242444;
+            padding-top: 1px;
+            transition: width 0.5s;
+            color: #ffffff;
+            font-size: 12px;
+        }
+
+        .sidebar.active {
+            width: 20px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 18px;
+        }
+
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+        }
+
+        .content {
+            flex: 1;
         }
 
         .google-sheet {
             width: 100%;
-            height: 100%;
+            height: 100vh;
             border: none;
         }
 
-        .overlay.active {
-            display: block;
+        .logo {
+            text-align: center;
+            margin-bottom: 20px; /* Alterado para dar espaço abaixo da logo */
         }
 
-        .menu.active {
-            left: 0;
+        .kauan {
+            font-size: 20px;
+            color: #ffcc00; /* Cor para Kauan */
+        }
+
+        .lauer {
+            font-size: 10px;
+            color: #66ccff; /* Cor para Lauer */
+            margin-left: 20px; /* Espaço entre Kauan e Lauer */
         }
     </style>
 </head>
@@ -103,31 +82,34 @@
         <i class="fas fa-bars"></i> Menu
     </button>
 
-    <div class="menu">
-        <a class="menu-button" href="index.html">Página Inicial</a>
-        <a class="menu-button" href="log.html">Estoque Logística</a>
-        <a class="menu-button" href="curitiba.html">Estoque Curitiba</a>
-        <a class="menu-button" href="fitas.html">Configuração Fitas</a>
-        <a class="menu-button" href="configuracaoPaletes.html">Configuração Paletes</a>        
-        <a class="menu-button" href="form.html">Formulários</a>
-        <a class="menu-button" href="rela.html">Relatórios</a>
-        <a class="menu-button" href="prazoproducao.html">Prazo de Produção</a>
-        <a class="menu-button" href="chegadasmanaus.html">Embarques Manaus</a>
-        <a class="menu-button" href="calc.html">Calculadora de Fita</a>  
-    </div>
     <div class="container">
-        <!-- Inserir a planilha do Google Sheets aqui -->
-        <iframe class="google-sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ-OtGAcu7veW58h2SB83FdmjKV1iGl1c4V4wqELQGRUI5A19FZbMVg0vV-twquMcHAs1_r65mpst87/pubhtml"></iframe>
+        <div class="sidebar" id="menu">
+            <img src="logo.png" alt="Logo" width="120">
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="log.html">Estoque Logística</a></li>
+                <li><a href="curitiba.html">Estoque Curitiba</a></li>
+                <li><a href="fitas.html">Configuração Fitas</a></li>
+                <li><a href="configuracaoPaletes.html">Configuração Paletes</a></li>        
+                <li><a href="form.html">Formulários</a></li>
+                <li><a href="rela.html">Relatórios</a></li>
+                <li><a href="prazoproducao.html">Prazo de Produção</a></li>
+                <li><a href="chegadasmanaus.html">Embarques Manaus</a></li>
+                <li><a href="calc.html">Calculadora de Fita</a></li>  
+            </ul>
+        </div>
+        <div class="content">
+            <!-- Inserir a planilha do Google Sheets aqui -->
+            <iframe class="google-sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ-OtGAcu7veW58h2SB83FdmjKV1iGl1c4V4wqELQGRUI5A19FZbMVg0vV-twquMcHAs1_r65mpst87/pubhtml"></iframe>
+        </div>
     </div>
     <script>
         function abrirMenu() {
-            document.querySelector('.menu').classList.add('active');
-            document.querySelector('.overlay').classList.add('active');
+            document.getElementById('menu').classList.toggle('active');
         }
 
         function fecharMenu() {
-            document.querySelector('.menu').classList.remove('active');
-            document.querySelector('.overlay').classList.remove('active');
+            document.getElementById('menu').classList.remove('active');
         }
     </script>
 </body>

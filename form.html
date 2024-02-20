@@ -7,152 +7,155 @@
     <title>Formulário</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(90deg, #304ffe, #00bcd4);
-            background-size: 200% 200%;
-            animation: gradient 3s ease infinite;
-        }
+     body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
 
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
+.container {
+    display: flex;
+}
 
-        .menu {
-            background-color: rgba(255, 255, 255, 0.8);
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-        }
+.sidebar {
+    width: 200px;
+    background-color: #242444;
+    padding-top: 20px;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
 
-        .menu-button {
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: #ff5722;
-            color: #fff;
-            font-size: 18px;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;
-            cursor: pointer;
-            position: relative;
-        }
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
 
-        .menu-button i {
-            margin-right: 10px;
-        }
+.sidebar ul li {
+    padding: 10px;
+    text-align: center;
+}
 
-        .menu-button:hover {
-            background-color: #ff6d3d;
-            transform: translateY(-5px);
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
-            color: #fff;
-        }
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    transition: 0.3s;
+}
 
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: calc(100vh - 40px); /* Subtrai a altura do menu */
-        }
+.sidebar ul li a:hover {
+    background-color: #555;
+}
 
-        .google-sheet {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+.form-container {
+    margin-left: 220px;
+    margin-top: 20px;
+    padding: 20px;
+    width: calc(100% - 220px);
+    display: flex;
+    justify-content: center;
+}
 
-        /* Estilização para o formulário */
-        form {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-            width: 80%;
-            max-width: 400px;
-            margin: 0 auto;
-        }
+form {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 100%;
+}
 
-        input[type="text"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333333;
+}
 
-        select {
-            height: 40px;
-        }
+label {
+    font-weight: bold;
+    color: #555555;
+}
 
-        textarea {
-            height: 100px;
-        }
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
 
-        input[type="submit"] {
-            background-color: #ff5722;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 18px;
-            cursor: pointer;
-        }
+select {
+    height: 40px;
+}
 
-        input[type="submit"]:hover {
-            background-color: #ff6d3d;
-        }
-        #confirmationMessage {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-        }
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
 
-        #dataHoraEnvio {
-            font-weight: bold;
-        }
+input[type="submit"] {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#confirmationMessage {
+    background-color: #28a745;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: none;
+}
+
+#dataHoraEnvio {
+    font-weight: bold;
+}
+
+
     </style>
 </head>
 <body>
-    <div class="menu">
-        <a class="menu-button" href="index.html">Página Inicial</a>
-        <a class="menu-button" href="log.html">Estoque Logística</a>
-        <a class="menu-button" href="curitiba.html">Estoque Curitiba</a>
-        <a class="menu-button" href="fitas.html">Configuração Fitas</a>
-        <a class="menu-button" href="configuracaoPaletes.html">Configuração Paletes</a>        
-        <a class="menu-button" href="form.html">Formulários</a>
-        <a class="menu-button" href="rela.html">Relatórios</a>
-        <a class="menu-button" href="prazoproducao.html">Prazo de Produção</a>
-        <a class="menu-button" href="chegadasmanaus.html">Embarques Manaus</a>
-        <a class="menu-button" href="calc.html">Calculadora de Fita</a>  
-    </div>
-    <div class="container">
-        <form id="myForm" action="https://script.google.com/macros/s/AKfycbyskZ81Nbe3wpHnoNCxJj_pQQwxormAKg7If0Yz1BGesupnwnqz4dqjp7CPZP-8kzRquA/exec" method="post">
+    <div class="container-sidebar">
+        <div class="sidebar" id="menu">
+            <img src="logo.png" alt="Logo" width="120">
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="log.html">Estoque Logística</a></li>
+                <li><a href="curitiba.html">Estoque Curitiba</a></li>
+                <li><a href="fitas.html">Configuração Fitas</a></li>
+                <li><a href="configuracaoPaletes.html">Configuração Paletes</a></li>        
+                <li><a href="form.html">Formulários</a></li>
+                <li><a href="rela.html">Relatórios</a></li>
+                <li><a href="prazoproducao.html">Prazo de Produção</a></li>
+                <li><a href="chegadasmanaus.html">Embarques Manaus</a></li>
+                <li><a href="calc.html">Calculadora de Fita</a></li>  
+            </ul>
+        </div>
+
+        <div class="form-container">
+            <form id="myForm" action="https://script.google.com/macros/s/AKfycbyskZ81Nbe3wpHnoNCxJj_pQQwxormAKg7If0Yz1BGesupnwnqz4dqjp7CPZP-8kzRquA/exec" method="post">
             <h2>Formulário</h2>
             <label for="nome">Nome do Pedido SAP (Número ou nome cliente):</label>
-            <input type="text" id="nome" name="nome" style="width: 100%;" required>
+            <input type="text" id="nome" name="nome" required>
+            <label for="email">Local:</label>
             <select id="email" name="email">
                 <option value="curitiba">Curitiba</option>
                 <option value="manaus">Manaus</option>
@@ -161,8 +164,8 @@
             <textarea id="descricao" name="descricao"></textarea>
             <input type="submit" value="Enviar">
         </form>
-        <div id="confirmationMessage" style="display: none;">Dados enviados com sucesso! Data e Hora de Envio: <span id="dataHoraEnvio"></span></div>
     </div>
+    <div id="confirmationMessage">Dados enviados com sucesso! Data e Hora de Envio: <span id="dataHoraEnvio"></span></div>
     <script>
        document.getElementById('myForm').addEventListener('submit', function(e) {
         e.preventDefault();
@@ -200,15 +203,6 @@
         })
         .catch(error => console.error('Erro:', error));
     }); 
-        function abrirMenu() {
-            document.querySelector('.menu').classList.add('active');
-            document.querySelector('.overlay').classList.add('active');
-        }
-
-        function fecharMenu() {
-            document.querySelector('.menu').classList.remove('active');
-            document.querySelector('.overlay').classList.remove('active');
-        }
     </script>
 </body>
 </html>
