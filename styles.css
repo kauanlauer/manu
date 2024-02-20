@@ -11,13 +11,14 @@ body, html {
 }
 
 .sidebar {
-    width: 200px;
-    background-color: #100f49;
+    width: 150px; /* Altere o valor para ajustar a largura do menu lateral */
+    background-color: #242444;
     padding-top: 1px;
     transition: width 0.5s;
     color: #ffffff;
     font-size: 12px;
 }
+
 
 .sidebar.active {
     width: 20px;

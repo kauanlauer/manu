@@ -3,55 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palete Fitas</title>
+    <title>Configuração Filmes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .container {
-            display: flex;
-        }
-
-        .sidebar {
-            width: 150px;
-            background-color: #242444;
-            padding-top: 1px;
-            color: #ffffff;
-            font-size: 12px;
-        }
-
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .sidebar ul li {
-            padding: 18px;
-        }
-
-        .sidebar ul li a {
-            color: #fff;
-            text-decoration: none;
-            display: block;
-        }
-
-        .google-sheet {
-            flex: 1;
-            border: none;
-            height: 100vh;
-            width: calc(100vw - 200px); /* Subtrai a largura da barra lateral */
-        }
-
-        .logo {
-            text-align: center;
-            margin-bottom: 20px; /* Espaço abaixo do logo */
-        }
-
-        .logo img {
-            display: block;
-            margin: 0 auto;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -72,7 +27,10 @@
                 <li><a href="rela.html">Relatórios</a></li>
             </ul>
         </div>
-        <iframe class="google-sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSXT_upmi2rqQRlLlDNAaCXMidrDXviU4TNDluh6NEH5UO36S54vFUVZEYnqePTXA/pubhtml"></iframe>
+        <div class="content">
+            <!-- Inserir a planilha do Google Sheets aqui -->
+            <iframe class="google-sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTzPMUy-lCk6kCyriIkDIjxh8eKPtkpqMXt_iNh-WWSHBmTCmQvRagflAdy_6soIg/pubhtml"></iframe>
+        </div>
     </div>
 </body>
 </html>

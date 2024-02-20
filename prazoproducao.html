@@ -7,6 +7,74 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 100%;
+        }
+
+        .sidebar {
+            width: 150px;
+            background-color: #242444;
+            padding-top: 1px;
+            transition: width 0.5s;
+            color: #ffffff;
+            font-size: 12px;
+        }
+
+        .sidebar.active {
+            width: 20px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 18px;
+        }
+
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+        }
+
+        .content {
+            flex: 1;
+            overflow: hidden; /* Para acomodar a planilha sem scroll */
+        }
+
+        .google-sheet {
+            width: calc(100vw - 200px); /* Subtrai a largura da barra lateral */
+            height: 100%; /* Ocupa toda a altura disponível */
+            border: none;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px; /* Espaço abaixo da logo */
+        }
+
+        .kauan {
+            font-size: 20px;
+            color: #ffcc00; /* Cor para Kauan */
+        }
+
+        .lauer {
+            font-size: 10px;
+            color: #66ccff; /* Cor para Lauer */
+            margin-left: 20px; /* Espaço entre Kauan e Lauer */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -14,12 +82,12 @@
             <div class="logo">
                 <img src="logo.png" alt="Logo" width="120">
             </div>
-
             <ul>
                 <li><a href="index.html">Página Inicial</a></li>
                 <li><a href="log.html">Estoque Logística</a></li>
                 <li><a href="curitiba.html">Estoque Curitiba</a></li>
-                <li><a href="fitas.html">Configuração Fitas</a></li>
+                <li><a href="fitas.html">Configuração Caixas Fitas</a></li>
+                <li><a href="film.html">Configuração Filme</a></li>
                 <li><a href="configuracaoPaletes.html">Configuração Paletes</a></li>        
                 <li><a href="prazoproducao.html">Prazo de Produção</a></li>
                 <li><a href="calc.html">Calculadora de Fita</a></li>
@@ -27,7 +95,7 @@
                 <li><a href="rela.html">Relatórios</a></li>
             </ul>
         </div>
-        <div class="container">
+        <div class="content">
             <!-- Inserir a nova planilha do Google Sheets aqui -->
             <iframe class="google-sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRer6MM79jNWRcxno6ei1Qsjx7xpXVszAov-fWfwhZ3yXSK3Xo8qV59TxJZr2NpWQ/pubhtml"></iframe>
         </div>
