@@ -64,3 +64,21 @@ body, html {
     color: #66ccff; /* Cor para Lauer */
     margin-left: 20px; /* Espaço entre Kauan e Lauer */
 }
+.menu-button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 5px 6px;
+    border-radius: 0px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-button:hover {
+    background-color: #0056b3;
+}
+
+.menu-button i {
+    margin-right: 5px; /* Adicione um espaço entre o ícone e o texto do botão */
+}

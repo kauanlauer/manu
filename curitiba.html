@@ -8,6 +8,13 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
 </head>
+    <body>
+        <div class="overlay" onclick="fecharMenu()"></div>
+    
+        <!-- Adiciona um botão de menu -->
+        <button class="menu-button" onclick="abrirMenu()">
+            <i class="fas fa-bars"></i> Menu
+        </button>
 <body>
     <div class="container">
         <div class="sidebar">
@@ -32,5 +39,15 @@
             <iframe class="google-sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQekh1AA7seyXPVh2nRbacI2-mZKYkNcs0SXWoSAn8OEEmOS2qr4GbPWz60qoqRpzDyuBDMbqm_yPWC/pubhtml"></iframe>
         </div>
     </div>
+    <script>
+        function abrirMenu() {
+            document.getElementById('menu').classList.toggle('active');
+        }
+
+        function fecharMenu() {
+            document.getElementById('menu').classList.remove('active');
+        }
+    </script>
 </body>
 </html>
+
