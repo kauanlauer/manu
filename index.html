@@ -7,169 +7,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xxx" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(90deg, #6e45e2, #88d3ce);
-            background-size: 200% 200%;
-            animation: gradient 3s ease infinite;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .menu {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-            padding: 30px;
-            text-align: center;
-        }
-
-        .menu-button {
-            display: block;
-            margin: 20px auto;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            background: linear-gradient(45deg, #ff5722, #f57c00);
-            color: #fff;
-            font-size: 20px;
-            text-decoration: none;
-            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease, opacity 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .menu-button:nth-child(odd) {
-            animation: fadeInLeft 1s ease forwards;
-        }
-
-        .menu-button:nth-child(even) {
-            animation: fadeInRight 1s ease forwards;
-        }
-
-        .menu-button:hover {
-            background: linear-gradient(45deg, #ff6d3d, #ff5722);
-            transform: translateY(-5px);
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
-            color: #fff;
-        }
-
-        @keyframes fadeInLeft {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInRight {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .menu-title {
-            font-family: 'Pacifico', cursive;
-            font-size: 36px;
-            color: #333;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .menu-icon {
-            margin-right: 10px;
-            transition: transform 0.2s ease;
-        }
-
-        .menu-button:hover .menu-icon {
-            transform: scale(1.2) rotate(360deg);
-        }
-
-        .menu-button:first-child {
-            background: linear-gradient(45deg, #00bcd4, #03a9f4);
-        }
-
-        .menu-button:first-child:hover {
-            background: linear-gradient(45deg, #00acc1, #039be5);
-        }
-
-        .menu-button:nth-child(2) {
-            background: linear-gradient(45deg, #4caf50, #43a047);
-        }
-
-        .menu-button:nth-child(2):hover {
-            background: linear-gradient(45deg, #43a047, #388e3c);
-        }
-        .menu-button:last-child {
-            background: linear-gradient(45deg, #ff5722, #f57c00);
-        }
-
-        .menu-button:last-child:hover {
-            background: linear-gradient(45deg, #ff6d3d, #ff5722);
-        }
-        .footer {
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-        color: white;
-        font-size: 14px;
-        opacity: 0.7;
-        }
-    </style>
+    <link rel="stylesheet" href="index.css"> <!-- seu arquivo de estilos personalizados -->
 </head>
 <body>
-    <div class="menu">
-        <h1 class="menu-title">Escolha um Estoque</h1>
-        <a class="menu-button" href="curitiba.html">
-            <i class="menu-icon fas fa-box"></i> Estoque Curitiba
-        </a>
-        <a class="menu-button" href="log.html">
-            <i class="menu-icon fas fa-shipping-fast"></i> Estoque Logística
-        </a>
-        <a class="menu-button" href="fitas.html">
-            <i class="menu-icon fas fa-tape"></i> Configuração Fitas
-        </a>
-        <a class="menu-button" href="configuracaoPaletes.html">
-            <i class="menu-icon fas fa-pallet"></i> Configuração Paletes
-        </a>        
-        <a class="menu-button" href="form.html">
-            <i class="menu-icon fas fa-file-alt"></i> Formulários
-        </a>
-        <a class="menu-button" href="rela.html">
-            <i class="menu-icon fas fa-file-pdf"></i> Relatório
-        </a>      
-        <a class="menu-button" href="prazoproducao.html">
-            <i class="menu-icon fas fa-cogs"></i> Prazo de Produção
-        </a> 
-        <a class="menu-button" href="chegadasmanaus.html">
-            <i class="menu-icon fas fa-ship"></i> Embarques Manaus
-        </a>
-        <a class="menu-button" href="calc.html">
-            <i class="menu-icon fas fa-calculator"></i> Calculadora de Fita
-        </a>        
-    </div>
-    <div class="footer">
-        <p>Versão 1.0.25</p>
-    </div>
+    <div class="container">
+        <div class="sidebar" id="menu">
+            <img src="logo.png" alt="Logo" width="120">
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="log.html">Estoque Logística</a></li>
+                <li><a href="curitiba.html">Estoque Curitiba</a></li>
+                <li><a href="fitas.html">Configuração Caixas Fitas</a></li>
+                <li><a href="film.html">Configuração Filme</a></li>
+                <li><a href="configuracaoPaletes.html">Configuração Paletes</a></li>        
+                <li><a href="prazoproducao.html">Prazo de Produção</a></li>
+                <li><a href="calc.html">Calculadora de Fita</a></li>
+                <li><a href="form.html">Formulários</a></li>
+                <li><a href="rela.html">Relatórios</a></li>
+            </ul>
+        </div>
+    
+        <div class="content">
+            <div class="center">
+                <div class="info">
+                    <h1>Data e Hora Atual</h1>
+                    <div id="data-hora" class="data-hora"></div>
+                    <h2>Previsão do Tempo em Curitiba</h2>
+                    <div id="previsao-tempo" class="previsao-tempo"></div>
+                </div>
+                <div class="mensagem-container">
+                    <div class="mensagem-positiva" id="mensagem-positiva"></div>
+                </div>                
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Kauan Lauer</p>
+        </footer>
+    <script src="index.js"></script> <!-- seu arquivo de script personalizado -->
 </body>
 </html>

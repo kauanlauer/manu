@@ -1,0 +1,127 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+.sidebar {
+    width: 150px; /* Altere o valor para ajustar a largura do menu lateral */
+    background-color: #242444;
+    padding-top: 1px;
+    transition: width 0.5s;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+
+.sidebar.active {
+    width: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 18px;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+.content {
+    flex: 1;
+}
+
+.google-sheet {
+    width: 100%;
+    height: 100vh;
+    border: none;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px; /* Alterado para dar espaço abaixo da logo */
+}
+
+.kauan {
+    font-size: 20px;
+    color: #ffcc00; /* Cor para Kauan */
+}
+
+.lauer {
+    font-size: 10px;
+    color: #66ccff; /* Cor para Lauer */
+    margin-left: 20px; /* Espaço entre Kauan e Lauer */
+}
+.menu-button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 5px 6px;
+    border-radius: 0px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-button:hover {
+    background-color: #0056b3;
+}
+
+.menu-button i {
+    margin-right: 5px; /* Adicione um espaço entre o ícone e o texto do botão */
+}
+
+
+/* parte do layout do horario, data e mensagem*/
+
+
+.info {
+    text-align: center;
+    margin-top: 50px; /* Espaçamento entre a parte superior da página e o conteúdo */
+}
+
+.data-hora {
+    font-size: 36px; /* Tamanho maior para a data e hora */
+    font-weight: bold; /* Deixa a data e hora em negrito */
+    color: #333; /* Cor escura para destacar */
+    margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+.previsao-tempo {
+    font-size: 24px; /* Tamanho menor para a previsão do tempo */
+    color: #666; /* Cor mais suave */
+    margin-bottom: 30px; /* Espaçamento inferior maior para separação entre as informações */
+}
+
+.mensagem-positiva {
+    font-size: 18px; /* Tamanho menor para a mensagem positiva */
+    color: #008000; /* Cor verde para uma mensagem positiva */
+    font-style: italic; /* Estilo itálico para diferenciar */
+}
+
+.mensagem-container {
+    background-color: #c9c6c6; /* Cor de fundo do quadrado */
+    border: 2px solid #8d8b8b; /* Borda do quadrado */
+    border-radius: 10px; /* Borda arredondada */
+    padding: 20px; /* Espaçamento interno */
+    margin-top: 10px; /* Margem superior */
+    text-align: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+.mensagem-positiva {
+    color: #161515; /* Cor do texto */
+    font-size: 25px; /* Tamanho da fonte */
+    font-style: italic; /* Estilo da fonte */
+}
