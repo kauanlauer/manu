@@ -1,127 +1,201 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Roboto', sans-serif;
-}
-
-.container {
+   /* ------------------------------------------- Menu mobile------------------------------------------- */
+   body
+   {
+     margin: 0;
+     padding: 0;
+     
+     background: #ffffff;
+     color: #fffdfd;
+     font-family: "Avenir Next", "Avenir", sans-serif;
+   }
+   
+   #menuToggle
+   {
+     display: block;
+     position: relative;
+     top: 50px;
+     left: 50px;
+     
+     z-index: 1;
+     
+     -webkit-user-select: none;
+     user-select: none;
+   }
+   
+   #menuToggle a
+   {
+     text-decoration: none;
+     color: #232323;
+     
+     transition: color 0.3s ease;
+   }
+   
+   #menuToggle a:hover
+   {
+     color: tomato;
+   }
+   
+  
+   #menuToggle input
+   {
+     display: block;
+     width: 40px;
+     height: 32px;
+     position: absolute;
+     top: -20px;
+     left: -5px;
+     
+     cursor: pointer;
+     
+     opacity: 0; /* hide this */
+     z-index: 2; /* and place it over the hamburger */
+     
+     -webkit-touch-callout: none;
+   }
+   
+   /*
+    * Just a quick hamburger
+    */
+   #menuToggle span
+   {
+     display: block;
+     width: 33px;
+     height: 4px;
+     margin-bottom: 5px;
+     position: relative;
+     
+     top: -20px;
+  
+     background: #000000;
+     border-radius: 3px;
+     
+     z-index: 1;
+     
+     transform-origin: 4px 0px;
+     
+     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                 background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                 opacity 0.55s ease;
+   }
+   
+   #menuToggle span:first-child
+   {
+     transform-origin: 0% 0%;
+   }
+   
+   #menuToggle span:nth-last-child(2)
+   {
+     transform-origin: 0% 100%;
+   }
+   
+   /* 
+    * Transform all the slices of hamburger
+    * into a crossmark.
+    */
+   #menuToggle input:checked ~ span
+   {
+     opacity: 1;
+     transform: rotate(45deg) translate(-2px, -1px);
+     background: #232323;
+   }
+   
+   /*
+    * But let's hide the middle one.
+    */
+   #menuToggle input:checked ~ span:nth-last-child(3)
+   {
+     opacity: 0;
+     transform: rotate(0deg) scale(0.2, 0.2);
+   }
+   
+   /*
+    * Ohyeah and the last one should go the other direction
+    */
+   #menuToggle input:checked ~ span:nth-last-child(2)
+   {
+     transform: rotate(-45deg) translate(0, -1px);
+   }
+   
+   /*
+    * Make this absolute positioned
+    * at the top left of the screen
+    */
+   #menu
+   {
+     position: absolute;
+     width: 300px;
+     margin: -100px 0 0 -50px;
+     padding: 50px;
+     padding-top: 125px;
+     background: #ffffff;
+     list-style-type: none;
+     -webkit-font-smoothing: antialiased;
+     /* to stop flickering of text in safari */
+     
+     transform-origin: 0% 0%;
+     transform: translate(-100%, 0);
+     
+     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+   }
+   
+   #menu li
+   {
+     padding: 10px 0;
+     font-size: 22px;
+   }
+   
+   /*
+    * And let's slide it in from the left
+    */
+   #menuToggle input:checked ~ ul
+   {
+     transform: none;
+   }
+             
+        /* ------------------------------------------- Menu mobile------------------------------------------- */
+  
+  
+   /* Fotos de Perfil */
+  .profile-photo-small {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .profile-container {
     display: flex;
-    height: 100%;
-}
-
-.sidebar {
-    width: 150px; /* Altere o valor para ajustar a largura do menu lateral */
-    background-color: #242444;
-    padding-top: 1px;
-    transition: width 0.5s;
-    color: #ffffff;
-    font-size: 12px;
-}
-
-
-.sidebar.active {
-    width: 20px;
-}
-
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    padding: 18px;
-}
-
-.sidebar ul li a {
-    color: #fff;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+  }
+  
+  .profile-container a {
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    display: block;
-}
-
-.content {
-    flex: 1;
-}
-
-.google-sheet {
+    color: #333; /* Cor do texto */
+  }
+  
+  .username {
+    margin-left: 10px; /* Espaçamento entre a foto e o nome de usuário */
+  }
+  @media (max-width: 768px) {
+    .username {
+        display: none;
+    }
+  }     
+  .profile-photo-small {
+    width: 40px; /* Tamanho da foto */
+    height: 40px; /* Tamanho da foto */
+    border-radius: 50%; /* Forma da borda */
+    cursor: pointer; /* Transforma o cursor em um ponteiro ao passar sobre a foto */
+  }
+  
+  .google-sheet {
     width: 100%;
-    height: 100vh;
+    height: 200vh;
     border: none;
-}
-
-.logo {
-    text-align: center;
-    margin-bottom: 20px; /* Alterado para dar espaço abaixo da logo */
-}
-
-.kauan {
-    font-size: 20px;
-    color: #ffcc00; /* Cor para Kauan */
-}
-
-.lauer {
-    font-size: 10px;
-    color: #66ccff; /* Cor para Lauer */
-    margin-left: 20px; /* Espaço entre Kauan e Lauer */
-}
-.menu-button {
-    background-color: #007bff;
-    color: #ffffff;
-    border: none;
-    padding: 5px 6px;
-    border-radius: 0px;
-    font-size: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.menu-button:hover {
-    background-color: #0056b3;
-}
-
-.menu-button i {
-    margin-right: 5px; /* Adicione um espaço entre o ícone e o texto do botão */
-}
-
-
-/* parte do layout do horario, data e mensagem*/
-
-
-.info {
-    text-align: center;
-    margin-top: 50px; /* Espaçamento entre a parte superior da página e o conteúdo */
-}
-
-.data-hora {
-    font-size: 36px; /* Tamanho maior para a data e hora */
-    font-weight: bold; /* Deixa a data e hora em negrito */
-    color: #333; /* Cor escura para destacar */
-    margin-bottom: 20px; /* Espaçamento inferior */
-}
-
-.previsao-tempo {
-    font-size: 24px; /* Tamanho menor para a previsão do tempo */
-    color: #666; /* Cor mais suave */
-    margin-bottom: 30px; /* Espaçamento inferior maior para separação entre as informações */
-}
-
-.mensagem-positiva {
-    font-size: 18px; /* Tamanho menor para a mensagem positiva */
-    color: #008000; /* Cor verde para uma mensagem positiva */
-    font-style: italic; /* Estilo itálico para diferenciar */
-}
-
-.mensagem-container {
-    background-color: #c9c6c6; /* Cor de fundo do quadrado */
-    border: 2px solid #8d8b8b; /* Borda do quadrado */
-    border-radius: 10px; /* Borda arredondada */
-    padding: 20px; /* Espaçamento interno */
-    margin-top: 10px; /* Margem superior */
-    text-align: center; /* Centraliza o conteúdo horizontalmente */
-}
-
-.mensagem-positiva {
-    color: #161515; /* Cor do texto */
-    font-size: 25px; /* Tamanho da fonte */
-    font-style: italic; /* Estilo da fonte */
-}
+    top: 90px;
+  }

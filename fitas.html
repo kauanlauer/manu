@@ -9,41 +9,60 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="overlay" onclick="fecharMenu()"></div>
-
-    <!-- Adiciona um botão de menu -->
-    <button class="menu-button" onclick="abrirMenu()">
-        <i class="fas fa-bars"></i> Menu
-    </button>
-
-    <div class="container">
-        <div class="sidebar" id="menu">
-            <img src="logo.png" alt="Logo" width="120">
-            <ul>
-                <li><a href="index.html">Página Inicial</a></li>
-                <li><a href="log.html">Estoque Logística</a></li>
-                <li><a href="curitiba.html">Estoque Curitiba</a></li>
-                <li><a href="fitas.html">Configuração Caixas Fitas</a></li>
-                <li><a href="film.html">Configuração Filme</a></li>
-                <li><a href="configuracaoPaletes.html">Configuração Paletes</a></li>        
-                <li><a href="prazoproducao.html">Prazo de Produção</a></li>
-                <li><a href="calc.html">Calculadora de Fita</a></li>
-                <li><a href="form.html">Formulários</a></li>
-                <li><a href="rela.html">Relatórios</a></li>
-            </ul>
+        <!--Menu mobile responsivel-->
+        <nav role="navigation">
+            <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                    <a href="index.html">
+                        <li>Página Inicial</li>
+                    </a>
+                    <a href="log.html">
+                        <li>Estoque Logística</li>
+                    </a>
+                    <a href="curitiba.html">
+                        <li>Estoque Curitiba</li>
+                    </a>
+                    <a href="fitas.html">
+                        <li>Configuração Caixas Fitas</li>
+                    </a>
+                    <a href="film.html">
+                        <li>Configuração Filme</li>
+                    </a>
+                    <a href="configuracaoPaletes.html">
+                        <li>Configuração Paletes</li>
+                    </a>
+                    <a href="prazoproducao.html">
+                        <li>Prazo de Produção</li>
+                    </a>
+                    <a href="calc.html">
+                        <li>Calculadora de Fita</li>
+                    </a>
+                    <a href="form.html">
+                        <li>Formulários </li>
+                    </a>
+                    <a href="rela.html">
+                        <li>Relatórios</li>
+                    </a>
+    
+                </ul>
+            </div>
+        </nav>
+        <!--Menu mobile responsivel-->
+    
+        <!-- Foto do perfil para mostrar na página -->
+        <div class="profile-container">
+                <a href="#" id="profile-link" class="profile-link">
+                    <img src="kauan.jpg" alt="Foto do Perfil" class="profile-photo-small">
+                   
         </div>
+        <!-- Foto do perfil para mostrar na página -->
+    
         <div class="content">
-            <iframe class="google-sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRF_droAb7LkUrEU9JvUd8Idvu8mCjyrJCNGRFyz1w415W8KnThizoyArWvfBZmtQ/pubhtml"></iframe>
+            <iframe class="google-sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRF_droAb7LkUrEU9JvUd8Idvu8mCjyrJCNGRFyz1w415W8KnThizoyArWvfBZmtQ/pubhtml" style="margin-top: 37px;"></iframe>
         </div>
-    </div>
-    <script>
-        function abrirMenu() {
-            document.getElementById('menu').classList.toggle('active');
-        }
-
-        function fecharMenu() {
-            document.getElementById('menu').classList.remove('active');
-        }
-    </script>
 </body>
 </html>

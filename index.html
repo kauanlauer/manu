@@ -3,47 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estoque</title>
+    <title>Ínicio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xxx" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="index.css"> <!-- seu arquivo de estilos personalizados -->
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar" id="menu">
-            <img src="logo.png" alt="Logo" width="120">
-            <ul>
-                <li><a href="index.html">Página Inicial</a></li>
-                <li><a href="log.html">Estoque Logística</a></li>
-                <li><a href="curitiba.html">Estoque Curitiba</a></li>
-                <li><a href="fitas.html">Configuração Caixas Fitas</a></li>
-                <li><a href="film.html">Configuração Filme</a></li>
-                <li><a href="configuracaoPaletes.html">Configuração Paletes</a></li>        
-                <li><a href="prazoproducao.html">Prazo de Produção</a></li>
-                <li><a href="calc.html">Calculadora de Fita</a></li>
-                <li><a href="form.html">Formulários</a></li>
-                <li><a href="rela.html">Relatórios</a></li>
+     <!--Menu mobile responsivel-->
+     <nav role="navigation">
+        <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+                <a href="index.html">
+                    <li>Página Inicial</li>
+                </a>
+                <a href="log.html">
+                    <li>Estoque Logística</li>
+                </a>
+                <a href="curitiba.html">
+                    <li>Estoque Curitiba</li>
+                </a>
+                <a href="fitas.html">
+                    <li>Configuração Caixas Fitas</li>
+                </a>
+                <a href="film.html">
+                    <li>Configuração Filme</li>
+                </a>
+                <a href="configuracaoPaletes.html">
+                    <li>Configuração Paletes</li>
+                </a>
+                <a href="prazoproducao.html">
+                    <li>Prazo de Produção</li>
+                </a>
+                <a href="calc.html">
+                    <li>Calculadora de Fita</li>
+                </a>
+                <a href="form.html">
+                    <li>Formulários </li>
+                </a>
+                <a href="rela.html">
+                    <li>Relatórios</li>
+                </a>
+
             </ul>
         </div>
-    
-        <div class="content">
-            <div class="center">
-                <div class="info">
-                    <h1>Data e Hora Atual</h1>
-                    <div id="data-hora" class="data-hora"></div>
-                    <h2>Previsão do Tempo em Curitiba</h2>
-                    <div id="previsao-tempo" class="previsao-tempo"></div>
-                </div>
-                <div class="mensagem-container">
-                    <div class="mensagem-positiva" id="mensagem-positiva"></div>
-                </div>                
-            </div>
-        </div>
+    </nav>
+    <!--Menu mobile responsivel-->
 
-        <footer class="footer">
-            <p>Kauan Lauer</p>
-        </footer>
-    <script src="index.js"></script> <!-- seu arquivo de script personalizado -->
+    <!-- Foto do perfil para mostrar na página -->
+    <div class="profile-container">
+            <a href="#" id="profile-link" class="profile-link">
+                <img src="kauan.jpg" alt="Foto do Perfil" class="profile-photo-small">
+               
+    </div>
+    <!-- Foto do perfil para mostrar na página -->
+    <script src="styles.css"></script> <!-- seu arquivo de script personalizado -->
 </body>
 </html>
